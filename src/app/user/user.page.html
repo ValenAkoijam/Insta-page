@@ -1,0 +1,48 @@
+<ion-content class="ion-padding">
+
+  <ion-grid style="padding: 6px 0;">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+      <ion-icon name="grid-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="ion-text-end ion-no-padding">
+      <ion-icon  name="chatbubble-ellipses-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <swiper-container [slidesPerView]="4.5">
+  <swiper-slide  *ngFor="let i of slides; index as ii">
+  <ion-avatar>
+    <ion-img [src]="i.img"></ion-img>
+  </ion-avatar>
+  </swiper-slide></swiper-container>
+ <br>
+  <ion-card *ngFor="let s of story; index as ss">
+    <ion-card-header>
+      <ion-item  lines="none" class="ion-no-padding">
+      <ion-avatar (click)="getToUser(s.id)"  slot="start">
+        <ion-img [src]="s.img"></ion-img>
+      </ion-avatar>
+      <ion-label ><b>{{s.name}}</b>
+        <div><ion-note>cbhdg</ion-note></div>
+      </ion-label>
+      <ion-icon slot="end" name="ellipsis-horizontal"></ion-icon>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-img [src]="s.img"></ion-img>
+      <div class="ion-no-padding">
+        <ion-icon name="heart-outline"></ion-icon><ion-note class="font">245k &nbsp; </ion-note>
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>99
+        <ion-icon name="navigate-outline"></ion-icon>
+        <br><ion-label><b>{{s.name}}</b> Have a nice day.</ion-label>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+<!-- https://lh3.googleusercontent.com/0vb7_vQZlDvR3dHPWgGxXxjcbPXhNkUiM5eCGGW_Ve2WbRtUQ-6p_a-xJ6BNZGfQKVjNeqnhrC3Ez78qyrmg2UxHDrNfiJH_NAooQlnqYpCN-Fk=w960-rj-nu-e365 -->

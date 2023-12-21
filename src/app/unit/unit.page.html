@@ -1,0 +1,36 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>unit</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="style">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/main"></ion-back-button>
+    </ion-buttons>
+    <div class="center">English</div>
+    <ion-label class="center"><b>Unit {{Data.id}}</b></ion-label>
+
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let i of [].constructor(4); index as ii">
+      <ion-label>Chapter {{ii+1}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <br>
+  <ion-label class="ion-padding" color="danger"><b> General Exercise {{Data.id}}</b></ion-label>
+
+  <swiper-container [slidesPerView]="2.5">
+    <swiper-slide *ngFor="let d of images" class="ion-margin-start">
+  <ion-card>
+   <ion-img>{{images}}</ion-img>
+  </ion-card>
+      
+    </swiper-slide>
+   
+  </swiper-container>
+
+  
+</ion-content>

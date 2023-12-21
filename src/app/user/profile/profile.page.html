@@ -1,0 +1,63 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start" class="ion-no-padding" >
+       <ion-back-button defaultHref="tabs/user"></ion-back-button>
+    </ion-buttons>
+    <div class="center"><ion-text><b>My Profile</b></ion-text></div>
+
+    <ion-buttons slot="end" class="ion-no-padding" >
+      <ion-icon  slot="end" name="settings-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="style ion-padding" >
+    <ion-avatar style="width: 100px; height: 100px">
+      <img [src]="story.img">
+    </ion-avatar>
+  </div>
+  <div>
+    <ion-text class="ion-padding ion-text center"><b>Wonyoung</b></ion-text>
+  </div>
+  <!-- <div class="ion-no-padding ion-text center">
+  <ion-note > Photos &nbsp; </ion-note>
+ <ion-note >Followers &nbsp; </ion-note>
+   <ion-note>Following</ion-note>
+  </div> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding ion-text center">Photos Followers Following</ion-col>
+    </ion-row>
+  </ion-grid>
+   <br>
+   <ion-grid>
+    <ion-row>
+      <ion-col>
+        <span (click)="photosOpen=true">Photos</span>&nbsp;
+         <span (click)="photosOpen=false; videoOpen=true">Video</span>&nbsp;
+         <span (click)="photosOpen=false; videoOpen=false; taggedOpen=true">Tagged</span></ion-col>
+      <ion-col class="ion-text-end">  <ion-icon  name="ellipsis-horizontal-outline"></ion-icon> </ion-col>
+    </ion-row>
+   </ion-grid>
+
+   <div *ngIf="photosOpen" >
+    <ion-grid  class="ion-align-items-start">
+      <ion-row  >
+        <ion-col *ngFor="let s of story.photos" size="6" class="new" >
+       <ion-img [src]="s"></ion-img>
+        </ion-col>
+
+        <!-- <ion-col>
+          <img src="https://i.pinimg.com/736x/2a/14/fd/2a14fdf552a6d680a8a7ae204986e0b1.jpg">
+          <br>
+          <img src="https://i.redd.it/3i9t6t56xx281.jpg">
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
+   </div>
+   
+</ion-content>
+
+
