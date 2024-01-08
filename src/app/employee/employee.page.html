@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-list *ngIf="employeeList">
+  <ion-item *ngFor="let a of employeeList.data" (click)="viewEmployee(a.id)">
+    <ion-label> {{a.attributes.name}}
+    <div><ion-note>{{a.attributes.gender}}<br>
+    {{a.attributes.email}}
+ </ion-note>
+    </div></ion-label>
+    <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+ </ion-item>
+</ion-list>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="openModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

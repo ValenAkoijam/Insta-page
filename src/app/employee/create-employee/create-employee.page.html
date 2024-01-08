@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>create-employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-button (click)="cancel()"></ion-button>
+
+ <div class="ion-padding">
+  <form [formGroup]="employeeForm" (ngSubmit)="formSubmit()">
+    <ion-item>
+      <ion-input  formControlName="name" label="Employee Name" labelPlacement="floating" placeholder="Enter the name of the employee"></ion-input>
+    </ion-item>
+    <ion-item>
+      <div >
+        <ion-label>Employee Gender</ion-label><br>
+        <ion-radio-group  formControlName="gender"  >
+          <ion-radio value="Male">Male </ion-radio>
+          <ion-radio value="Female">Female</ion-radio>
+        </ion-radio-group>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="email" label="Employee Email" labelPlacement="floating" placeholder="Enter the email of the employee"></ion-input>
+    </ion-item>
+      
+    <ion-button  type="submit">Submit</ion-button>
+  </form>
+ </div>
+</ion-content>

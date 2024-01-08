@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>employee-view</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-card *ngIf="employee">
+<ion-card-content>
+  <ion-text color="dark">Name: <b>{{ employee.data.attributes.name}}</b></ion-text>
+  <div>
+    <ion-note>Gender: <b>{{ employee.data.attributes.gender}}</b></ion-note>
+  </div>
+  <div>
+    <ion-note>Email: <b>{{ employee.data.attributes.email}}</b></ion-note>
+  </div>
+  <ion-icon (click)="deleteEmployee(employee.data.id)" name="trash-outline"></ion-icon>&nbsp;
+  <!-- <ion-icon (click)="updateEmployee(employee.data.id)" name="create-outline"></ion-icon> -->
+  <ion-icon (click)="updateModal = true" name="create-outline"></ion-icon>
+</ion-card-content></ion-card>
+
+<ion-modal [isOpen]="updateModal" >
+  <ng-template>
+    <ion-header [translucent]="true">
+      <ion-toolbar color="primary">
+        <ion-title>Update-employee</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content [fullscreen]="true">
+    <ion-button (click)="updateModal = false"></ion-button>
+    <div class="ion-padding">
+      <form [formGroup]="employeeForm" (ngSubmit)="formSubmit()">
+        <ion-item>
+          <ion-input [(ngModel)]="employee.data.attributes.name"  formControlName="name" label="Employee Name" labelPlacement="floating" placeholder="Enter the name of the employee"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-radio-group  [(ngModel)]="employee.data.attributes.gender"  formControlName="gender">
+            <ion-radio value="Male">Male</ion-radio>
+            <ion-radio value="Female">Female</ion-radio>
+          </ion-radio-group>
+          </ion-item>
+        <ion-item>
+          <ion-input [ngModel]="employee.data.attributes.email" formControlName="email" label="Employee Email" labelPlacement="floating" placeholder="Enter the email of the employee"></ion-input>
+        </ion-item>
+          
+        <ion-button  type="submit">Submit</ion-button>
+      </form>
+     </div>
+     </ion-content>
+  </ng-template>
+</ion-modal>
+</ion-content>
